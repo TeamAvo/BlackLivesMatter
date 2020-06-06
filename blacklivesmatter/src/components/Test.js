@@ -2,7 +2,10 @@ import React from 'react'
 
 function Test(){
     return(
-        <h1>Protest should be powerful but peaceful.</h1>
+        <div>
+            <h1>#blacklivesmatter</h1>
+            <h2>Protest should be powerful but peaceful.</h2>
+        </div>
     )
 }
 
