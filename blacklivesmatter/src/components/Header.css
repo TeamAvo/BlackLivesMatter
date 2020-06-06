@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Cornerstone';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Cornerstone'),
+      url(../fonts/Cornerstone.woff) format('woff'),
+      url(../fonts/Cornerstone.woff2) format('woff2'),
+      url(../fonts/Cornerstone.ttf) format('truetype'),
+}
+
 .Tag-Line {
-    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Cornerstone;
 }
