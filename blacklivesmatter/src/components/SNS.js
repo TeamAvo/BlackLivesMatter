@@ -1,27 +1,51 @@
-import React from "react";
-import { Link } from "react-router-dom";
-// reactstrap components
-import { Button, Container, Row } from "reactstrap";
-
-const cardInfo = [["Title", "Platform", "Context", "Date"], ["A", "Facebook", "Test1", "Date"], ["B", "Youtube", "Test2", "Date"]]
-
+import React, { useState, useEffect } from 'react';
 
 function SNS() {
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
 
-    const items = []
-    for (const [index, value] of cardInfo.entries()) {
-        items.push(<Card index={index} title={value[0]} platform={value[1]} context={value[2]} />);
+    useEffect(() => {
+        fetch("https://api.social-searcher.com/v2/search?q=blacklivesmatter&network=instagram&type=video,photo,status,link&limit=100")
+        .then(res => res.json())
+        .then(
+                (result) => {
+                    setIsLoaded(true);
+                    setItems(result);
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+    }, [])
+
+    //console.log(items);
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+        return <div>Loading...</div>;
+    } else {
+        //console.log(items.posts);
+        const infos = items.posts;
+        const cards = []
+        for (const [index, value] of infos.entries()) {
+            cards.push(
+                <h1>{value.text}</h1>
+            )
+        }
+
+        return (
+            <>
+               {cards}
+            </>
+        );
     }
-
-    return (
-        <>
-            {items}
-        </>
-    );
 }
 
-function Card(props){
-    return(
+function Card(props) {
+    return (
         <div>
             <h1>#blacklivesmatter - {props.index}</h1>
             <h2>{props.title}</h2>
