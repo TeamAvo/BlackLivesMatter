@@ -40,7 +40,8 @@ function IndexHeader() {
               src={require("assets/img/blm_icon.png")}
             ></img>
             <h1 className="h1-seo">Black Lives Matter</h1>
-            <h3>This is the website that provides the live-dashboard about the #blacklivesmatter movement.</h3>
+            <h2>Protest should be powerful, but peaceful.</h2>
+            <h4>This site provides social media posts that related with #blacklivesmatter in real time.</h4>
           </div>
         </Container>
       </div>
