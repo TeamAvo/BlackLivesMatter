@@ -1,8 +1,16 @@
+@font-face {
+  font-family: 'Cornerstone';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cornerstone'),
+    url(./fonts/Cornerstone.woff) format('woff'),
+    url(./fonts/Cornerstone.woff2) format('woff2'),
+    url(./fonts/Cornerstone.ttf) format('truetype'),
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Cornerstone;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
