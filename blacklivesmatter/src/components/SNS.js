@@ -1,47 +1,50 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function SNS() {
+    const [items, setUsers] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
+
+    const network = []
 
     useEffect(() => {
-        fetch("https://api.social-searcher.com/v2/search?q=blacklivesmatter&network=instagram&type=video,photo,status,link&limit=100")
-        .then(res => res.json())
-        .then(
-                (result) => {
-                    setIsLoaded(true);
-                    setItems(result);
-                },
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            )
-    }, [])
+        const fetchUsers = async () => {
+            try {
+                setError(null);
+                setUsers(null);
+                setLoading(true);
+                const response = await axios.get(
+                    'https://api.social-searcher.com/v2/search?q=blacklivesmatter&network=instagram&type=video,photo,status,link&limit=100'
+                );
+                setUsers(response.data);
+            } catch (e) {
+                setError(e);
+            }
+            setLoading(false);
+        };
+        fetchUsers();
+    }, []);
 
-    //console.log(items);
+    const cards = [];
 
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-        return <div>Loading...</div>;
-    } else {
-        //console.log(items.posts);
+    if (loading) return <div>Laoding...</div>;
+    if (error) return <div>ERROR........</div>;
+    if (!items) return null;
+    if (items) {
         const infos = items.posts;
-        const cards = []
-        for (const [index, value] of infos.entries()) {
+        console.log(infos);
+        infos.map((p) => (
             cards.push(
-                <h1>{value.text}</h1>
+                <h1 key={p.postid}>{p.text}</h1>
             )
-        }
-
-        return (
-            <>
-               {cards}
-            </>
-        );
+        ));
     }
+    return (
+        <ul>
+            {cards}
+        </ul>
+    );
 }
 
 function Card(props) {
