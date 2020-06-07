@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/BlackLivesMatter/static/css/main.f7d4ba38.chunk.css",
+    "main.js": "/BlackLivesMatter/static/js/main.34a24070.chunk.js",
+    "main.js.map": "/BlackLivesMatter/static/js/main.34a24070.chunk.js.map",
+    "runtime~main.js": "/BlackLivesMatter/static/js/runtime~main.f20eb454.js",
+    "runtime~main.js.map": "/BlackLivesMatter/static/js/runtime~main.f20eb454.js.map",
+    "static/js/2.f20cab22.chunk.js": "/BlackLivesMatter/static/js/2.f20cab22.chunk.js",
+    "static/js/2.f20cab22.chunk.js.map": "/BlackLivesMatter/static/js/2.f20cab22.chunk.js.map",
+    "index.html": "/BlackLivesMatter/index.html",
+    "precache-manifest.558e74359c0555a011432c3371eb6f3c.js": "/BlackLivesMatter/precache-manifest.558e74359c0555a011432c3371eb6f3c.js",
+    "service-worker.js": "/BlackLivesMatter/service-worker.js",
+    "static/css/main.f7d4ba38.chunk.css.map": "/BlackLivesMatter/static/css/main.f7d4ba38.chunk.css.map",
+    "static/media/index.css": "/BlackLivesMatter/static/media/Cornerstone.ac83ef5a.ttf",
+    "static/media/blm_icon.png": "/BlackLivesMatter/static/media/blm_icon.47dee870.png",
+    "static/media/blm_v1.png": "/BlackLivesMatter/static/media/blm_v1.96d3b45d.png",
+    "static/media/now-ui-kit.scss": "/BlackLivesMatter/static/media/nucleo-outline.8ebec31f.woff2"
+  }
+}
