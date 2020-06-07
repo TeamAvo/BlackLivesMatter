@@ -1,9 +1,11 @@
 {
+  "homepage": "https://teamavo.github.io/BlackLivesMatter/",
   "name": "blacklivesmatter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
+    "gh-pages": "^3.0.0",
     "moment": "2.24.0",
     "node-sass": "4.12.0",
     "nouislider": "14.0.2",
@@ -22,6 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "compile-sass": "node-sass src/assets/scss/now-ui-kit.scss src/assets/css/now-ui-kit.css",
     "minify-sass": "node-sass src/assets/scss/now-ui-kit.scss src/assets/css/now-ui-kit.min.css --output-style compressed",

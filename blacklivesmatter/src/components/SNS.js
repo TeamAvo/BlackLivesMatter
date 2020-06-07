@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import 'index.css';
 
 import {
     Card,
@@ -52,11 +53,16 @@ function SNS() {
 
     if (loading) {
         return (
-            <h1>Parsing {networkType} posts...</h1>
+            <Container>
+                <h1>Parsing {networkType} posts...</h1>
+            </Container>
         );
     }
     if (error) return (
-        <h1>Error occurred while parsing posts.</h1>
+        <Container>
+            <h1>Error occurred while parsing posts.</h1>
+            <h3>{error.toString()}</h3>
+        </Container>
     );
     if (!data) {
         return null;
@@ -80,7 +86,7 @@ function SNS() {
             ));
         }
         return (
-            <Container>
+            <Container className="noMargin">
                 <Row>
                     {cards}
                 </Row>
@@ -90,22 +96,18 @@ function SNS() {
 }
 
 function PostCard(props) {
-    const [iconPills, setIconPills] = React.useState("1");
-    const [pills, setPills] = React.useState("1");
     return (
-        <Col className="ml-auto mr-auto" md="4" xl="4">
-            <Card data-background-color="black">
+        <Col className="ml-auto mr-auto" md="10" xl="2">
+            <Card className="dark">
                 <CardHeader>
-                    <Nav className="nav-tabs-neutral justify-content-center"
-                        data-background-color="yellow"
+                    <Nav className="nav-tabs-neutral justify-content-center yel"
                         role="tablist"
                         tabs>
                         <NavItem>
                             <NavLink
-                                className={iconPills === "1" ? "active" : ""}
                                 href={props.url}
                             >
-                                {props.network}
+                                <h3 className="noMargin">{props.network}</h3>
                             </NavLink>
                         </NavItem>
                     </Nav>
@@ -113,10 +115,8 @@ function PostCard(props) {
                 <CardBody>
                     <TabContent
                         className="text-center"
-                        activeTab={"pills" + pills}
                     >
                         <p>{props.text}</p>
-                        <p>#blacklivesmatter</p>
                         <p>{props.posted}</p>
                     </TabContent>
                 </CardBody>
